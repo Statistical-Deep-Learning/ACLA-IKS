@@ -1,5 +1,4 @@
 import torch
-
 import utility
 import data
 import model

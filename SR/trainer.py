@@ -4,9 +4,7 @@ from decimal import Decimal
 import time
 import utility
 import torch
-from torch.autograd import Variable
 from tqdm import tqdm
-
 
 class Trainer:
     def __init__(self, args, loader, my_model, my_loss, ckp):
