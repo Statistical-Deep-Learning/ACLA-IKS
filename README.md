@@ -1,4 +1,12 @@
-# Adaptive Cross-Layer Attention for image restoration
+# Adaptive Cross-Layer Attention with Informative Key Selection for Image Restoration
+
+## Abstract
+Non-local attention has demonstrated strong capability in improving image restoration performance. Building upon this, cross-layer attention has been introduced to capture inter-layer dependencies and hierarchical feature correlations across different network depths, enabling the model to fuse fine-grained spatial details from shallow layers with high-level contextual details from deeper layers. 
+However, existing cross-layer attention methods often consider dense correlations among features across multiple layers without selectively emphasizing semantically relevant relationships, which can lead to redundant computations and suboptimal feature aggregation.
+To address this limitation, we propose Adaptive Cross-Layer Attention with Informative Key Selection (ACLA-IKS), a novel cross-layer attention module that enables each query pixel to attend to semantically aligned and informative key features selected from multiple preceding layers with a mask module.
+The Informative Key Selection (IKS) mechanism in ACLA-IKS is inspired by the Information Bottleneck (IB) principle, which guides the model to retain task-relevant semantic information while suppressing redundant dependencies by reducing the IB loss.
+Furthermore, to enhance computational efficiency, we derive a novel variational upper bound of the IB loss that enables stable and efficient reduction of the IB loss without compromising restoration quality.
+A neural architecture search strategy is further introduced to automatically determine the optimal insertion positions of ACLA-IKS modules within the network. By dynamically aggregating informative keys across layers and aligning cross-layer semantics, ACLA-IKS effectively enhances feature integration, achieving superior restoration quality with lightweight computation. Extensive experiments on a wide range of image restoration tasks, including single image super-resolution, image denoising, image demosaicing, and compression artifact reduction, demonstrate that ACLA-IKS consistently outperforms existing attention-based approaches.
 ## Train
 #### Package Usage
 torch >= 1.6.0
